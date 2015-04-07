@@ -1,13 +1,22 @@
 <div>
-  <ul>
+  <ul class="row">
     <li ng-repeat="entry in curriculum" ng-bind="entry"></li>
   </ul>
 
-  <div class="row" ng-repeat="cat in skills">
-    <h4 ng-bind="cat.name"></h4>
+
+  <div class="row curriculum-skills" ng-repeat="cat in skills">
+    <h4 class="col-sm-12" ng-bind="cat.name"></h4>
     <div class="col-sm-3" ng-repeat="skill in cat.items">
       <span ng-bind="skill.name"></span>
-      <span ng-bind="skill.point"></span>
+      <div class="progress curriculum-points">
+        <div class="progress-bar progress-bar-success"
+             role="progressbar"
+             aria-valuenow="{{ skill.point }}"
+             aria-valuemin="0"
+             aria-valuemax="3"
+             ng-style="{width : percentia(skill.point) }">
+        </div>
+      </div>
     </div>
   </div>
 </div>

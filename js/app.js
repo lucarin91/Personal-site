@@ -10,7 +10,12 @@ function($routeProvider, $locationProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'html/home.html',
-    controller: 'HomeCtrl'
+    controller: 'HomeCtrl',
+    resolve: {
+      me:function(JsonLoader){
+        return JsonLoader.get('json/me.json');
+      }
+    }
   })
   .when('/curriculum', {
     title: 'curriculum',
@@ -29,7 +34,11 @@ function($routeProvider, $locationProvider) {
     title: 'project',
     templateUrl: 'html/project.html',
     controller: 'ProjectCtrl',
-    resolve: {}
+    resolve: {
+      projects:function(JsonLoader){
+        return JsonLoader.get('json/projects.json');
+      }
+    }
   })
   .when('/contact',{
     title: 'contact',
