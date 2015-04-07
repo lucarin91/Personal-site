@@ -1,0 +1,13 @@
+<div>
+  <ul>
+    <li ng-repeat="entry in curriculum" ng-bind="entry"></li>
+  </ul>
+
+  <div class="row" ng-repeat="cat in skills">
+    <h4 ng-bind="cat.name"></h4>
+    <div class="col-sm-3" ng-repeat="skill in cat.items">
+      <span ng-bind="skill.name"></span>
+      <span ng-bind="skill.point"></span>
+    </div>
+  </div>
+</div>
