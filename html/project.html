@@ -1,1 +1,11 @@
----project---
+<div>
+  <div class="row" ng-repeat="cat in projects">
+    <h4 class="col-sm-12" ng-bind="cat.name"></h4>
+    <div class="col-sm-6" ng-repeat="p in cat.items">
+      <a href="{{ p.link }}">
+        <h5 ng-bind="p.name"></h5>
+      </a>
+      <p ng-bind="p.info"></p>
+    </div>
+  </div>
+</div>
